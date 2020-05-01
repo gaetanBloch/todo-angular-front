@@ -1,3 +1,9 @@
 img {
   width: 40px;
+  padding-top: 0;
+}
+
+.navbar-brand-container {
+  padding-bottom: 0;
+  margin-right: 0;
 }
