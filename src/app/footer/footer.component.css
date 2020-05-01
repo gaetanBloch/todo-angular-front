@@ -1,0 +1,17 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #343A40;
+}
+
+span {
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+a {
+  text-decoration: none;
+}
