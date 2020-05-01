@@ -1,9 +1,10 @@
-<label for="username">Username: </label>
-<input type="text" id="username" name="username" [(ngModel)]="username">
-<br>
-<br>
-<label for="password">Password: </label>
-<input type="password" id="password" name="password" [(ngModel)]="password">
-<br>
-<br>
+<small *ngIf="invalidLogin">Invalid Credentials</small>
+<div>
+  <label for="username">Username: </label>
+  <input type="text" id="username" name="username" [(ngModel)]="username">
+</div>
+<div>
+  <label for="password">Password: </label>
+  <input type="password" id="password" name="password" [(ngModel)]="password">
+</div>
 <button (click)="onLogin()">Login</button>
