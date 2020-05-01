@@ -1,9 +1,9 @@
 <label for="username">Username: </label>
-<input type="text" id="username" name="username" value="{{ username }}">
+<input type="text" id="username" name="username" [(ngModel)]="username">
 <br>
 <br>
 <label for="password">Password: </label>
-<input type="password" id="password" name="password" value="{{ password }}">
+<input type="password" id="password" name="password" [(ngModel)]="password">
 <br>
 <br>
 <button (click)="onLogin()">Login</button>
