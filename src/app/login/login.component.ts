@@ -11,12 +11,13 @@ export class LoginComponent implements OnInit {
   password = '';
   invalidLogin: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-  onLogin(): void {
+  onSubmit(): void {
     if (this.username === 'gbloch' && this.password === 'dummy') {
       this.invalidLogin = false;
       this.router.navigate(['welcome', this.username]);
