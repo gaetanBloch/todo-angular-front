@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from './todo.model';
 
 @Component({
   selector: 'app-list-todos',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTodosComponent implements OnInit {
   todos = [
-    {id: 1, description: 'Become an expert at Angular'},
-    {id: 2, description: 'Become an expert at Node.js'},
-    {id: 3, description: 'Learn Reactjs'},
+    new Todo(1, 'Become an expert at Angular', false, new Date()),
+    new Todo(1, 'Become an expert at Node.js', false, new Date()),
+    new Todo(1, 'Learn Reactjs', false, new Date())
   ];
 
   constructor() { }
