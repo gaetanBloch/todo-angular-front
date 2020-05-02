@@ -4,13 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'welcome', component: WelcomeComponent},
-  {path: 'welcome/:username', component: WelcomeComponent},
-  {path: 'todos', component: ListTodosComponent},
+  {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'welcome/:username', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'todos', component: ListTodosComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
