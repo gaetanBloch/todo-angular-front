@@ -23,7 +23,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   getWelcomeMessage(): void {
-    console.log(this.welcomeDataService.getHelloWorld());
+    this.welcomeDataService.getHelloWorld().subscribe();
   }
 
   ngOnDestroy(): void {

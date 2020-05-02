@@ -9,6 +9,6 @@ export class WelcomeDataService {
   }
 
   getHelloWorld(): Observable<{ message: string }> {
-    return this.http.get<{ message: string; }>('http://localhost:8080/hello-world-model');
+    return this.http.get<{ message: string }>('http://localhost:8080/hello-world-model');
   }
 }
