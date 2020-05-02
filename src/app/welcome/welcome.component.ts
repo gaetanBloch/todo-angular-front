@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WelcomeDataService } from '../shared/data/welcome-data.service';
-import { HardcodedAuthService } from '../shared/hardcoded-auth.service';
-import { User } from '../shared/user.model';
+import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
+import { User } from '../shared/model/user.model';
 
 @Component({
   selector: 'app-welcome',
