@@ -13,4 +13,8 @@ export class TodoDataService {
   getAllTodos(username: string): Observable<Todo[]> {
     return this.http.get<Todo[]>(`/api/users/${username}/todos`);
   }
+
+  deleteTodo(username: string, id: number): Observable<Todo[]> {
+    return this.http.delete<Todo[]>(`/api/users/${username}/todos/${id}`);
+  }
 }

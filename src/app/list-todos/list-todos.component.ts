@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
+
 import { Todo } from '../shared/model/todo.model';
 import { TodoDataService } from '../shared/data/todo-data.service';
-import { User } from '../shared/model/user.model';
 import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-list-todos',
@@ -12,21 +14,45 @@ import { Subscription } from 'rxjs';
 })
 export class ListTodosComponent implements OnInit, OnDestroy {
   todos: Todo[];
-  private todoSubscription: Subscription;
+  faTrashAlt = faTrashAlt;
+  username: string;
+  message: string;
+  private getTodosSubscription: Subscription;
+  private deleteTodoSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService) {
   }
 
   ngOnInit(): void {
-    const user: User = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER));
-    this.todoSubscription = this.todoDataService.getAllTodos(user.username).subscribe(todos => {
-      this.todos = todos;
+    this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
+    this.refreshTodoTable(() => {
     });
   }
 
+  onDelete(id: number): void {
+    this.deleteTodoSubscription = this.todoDataService.deleteTodo(this.username, id)
+      .subscribe(() => {
+        this.refreshTodoTable(() => {
+          this.message = `Delete successful for id = ${id}`;
+          setTimeout(() => this.message = null, 5000);
+        });
+      });
+  }
+
   ngOnDestroy(): void {
-    if (this.todoSubscription) {
-      this.todoSubscription.unsubscribe();
+    if (this.getTodosSubscription) {
+      this.getTodosSubscription.unsubscribe();
     }
+    if (this.deleteTodoSubscription) {
+      this.deleteTodoSubscription.unsubscribe();
+    }
+  }
+
+  private refreshTodoTable(callback: () => any) {
+    this.getTodosSubscription = this.todoDataService.getAllTodos(this.username)
+      .subscribe(todos => {
+        this.todos = todos;
+        callback();
+      });
   }
 }

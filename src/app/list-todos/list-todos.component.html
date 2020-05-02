@@ -1,9 +1,12 @@
+<div class="alert alert-success" *ngIf="message">{{ message }}</div>
+
 <table class="table table-striped table-hover">
   <thead>
   <tr>
     <th>Description</th>
     <th>Target Date</th>
     <th>Is Completed ?</th>
+    <th>Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -11,6 +14,12 @@
     <td>{{ todo.description }}</td>
     <td>{{ todo.targetDate | date }}</td>
     <td>{{ todo.done }}</td>
+    <td>
+      <button class="btn btn-danger" (click)="onDelete(todo.id)">
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+        Delete
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
