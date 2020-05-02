@@ -11,13 +11,18 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   username: string;
   paramsSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.username = this.route.snapshot.params.username;
     this.paramsSubscription = this.route.params.subscribe(params => {
       this.username = params.username;
     });
+  }
+
+  getWelcomeMessage(): void {
+    console.log('Get Welcome Message');
   }
 
   ngOnDestroy(): void {

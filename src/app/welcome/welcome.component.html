@@ -3,4 +3,8 @@
   Welcome to the application {{ username }}
   <br>
   You can manage your TODO's <a routerLink="/todos">here</a>
+  <div class="welcome-container">
+    Click here to get a customized welcome message <br>
+    <button (click)="getWelcomeMessage()" class="btn btn-primary">Get Welcome Message</button>
+  </div>
 </div>
