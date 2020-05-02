@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { WelcomeDataService } from '../shared/data/welcome-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +12,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   username: string;
   paramsSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private welcomeDataService: WelcomeDataService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +23,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   getWelcomeMessage(): void {
-    console.log('Get Welcome Message');
+    this.welcomeDataService.getHelloWorld();
   }
 
   ngOnDestroy(): void {

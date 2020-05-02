@@ -5,4 +5,8 @@ export class WelcomeDataService {
 
   constructor() {
   }
+
+  getHelloWorld(): void {
+    console.log('Get Hello World!');
+  }
 }
