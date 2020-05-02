@@ -25,14 +25,15 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  getWelcomeMessage(): void {
-    this.welcomeSubscription = this.welcomeDataService.getHelloWorld().subscribe(response => {
-      this.welcomeMessage = response.message;
-      this.errorMessage = null;
-    }, error => {
-      this.errorMessage = error.message;
-      this.welcomeMessage = null;
-    });
+  getWelcomeMessageWithParam(): void {
+    this.welcomeSubscription = this.welcomeDataService.getHelloWorldWithParam(this.username)
+      .subscribe(response => {
+        this.welcomeMessage = response.message;
+        this.errorMessage = null;
+      }, error => {
+        this.errorMessage = error.message;
+        this.welcomeMessage = null;
+      });
   }
 
   ngOnDestroy(): void {

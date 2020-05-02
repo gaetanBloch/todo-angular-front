@@ -6,7 +6,9 @@
   <hr>
   <div class="welcome-container">
     Click here to get a customized welcome message from the server: <br>
-    <button (click)="getWelcomeMessage()" class="btn btn-primary">Get Welcome Message</button>
+    <button (click)="getWelcomeMessageWithParam()" class="btn btn-primary">
+      Get Welcome Message
+    </button>
     <div class="alert alert-info" *ngIf="welcomeMessage">
       <p>{{ welcomeMessage }}</p>
     </div>
