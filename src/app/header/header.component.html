@@ -27,8 +27,8 @@
         <li class="nav-item" routerLinkActive="active" *ngIf="!authService.isAuthenticated()">
           <a routerLink="/login" class="nav-link">Login</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" *ngIf="authService.isAuthenticated()">
-          <a routerLink="/logout" class="nav-link">Logout</a>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a style="cursor: pointer" class="nav-link" (click)="onLogout()">Logout</a>
         </li>
       </ul>
     </div>

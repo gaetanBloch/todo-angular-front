@@ -6,7 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'welcome/:username', component: WelcomeComponent},

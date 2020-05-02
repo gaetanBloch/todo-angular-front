@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.authService.authenticate(this.username, this.password)) {
+    if (this.authService.login(this.username, this.password)) {
       this.invalidLogin = false;
       this.router.navigate(['welcome', this.username]);
     } else {
