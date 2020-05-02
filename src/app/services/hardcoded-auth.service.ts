@@ -5,4 +5,8 @@ export class HardcodedAuthService {
 
   constructor() {
   }
+
+  authenticate(username: string, password: string): boolean {
+    return username === 'gbloch' && password === 'dummy';
+  }
 }
