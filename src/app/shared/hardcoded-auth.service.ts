@@ -22,7 +22,7 @@ export class HardcodedAuthService {
 
   logout() {
     sessionStorage.removeItem(HardcodedAuthService.USER);
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
   isAuthenticated(): boolean {
