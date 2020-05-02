@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HardcodedAuthService } from '../services/hardcoded-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
+  isAuthenticated = false;
 
-  constructor() {
+  constructor(private authService: HardcodedAuthService) {
   }
 
   ngOnInit(): void {
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
 }
