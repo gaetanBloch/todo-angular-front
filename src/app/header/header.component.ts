@@ -8,13 +8,11 @@ import { HardcodedAuthService } from '../services/hardcoded-auth.service';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  isAuthenticated = false;
 
-  constructor(private authService: HardcodedAuthService) {
+  constructor(public authService: HardcodedAuthService) {
   }
 
   ngOnInit(): void {
-    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
 }

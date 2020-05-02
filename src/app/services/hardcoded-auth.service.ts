@@ -16,6 +16,6 @@ export class HardcodedAuthService {
   }
 
   isAuthenticated(): boolean {
-    return sessionStorage.getItem('username') != null;
+    return sessionStorage.getItem('authenticatedUser') != null;
   }
 }
