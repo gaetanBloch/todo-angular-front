@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WelcomeDataService } from '../shared/data/welcome-data.service';
+import { HardcodedAuthService } from '../shared/hardcoded-auth.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-welcome',
@@ -22,6 +24,10 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     this.username = this.route.snapshot.params.username;
     this.paramsSubscription = this.route.params.subscribe(params => {
       this.username = params.username;
+      if (!this.username) {
+        const user: User = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER));
+        this.username = user.username;
+      }
     });
   }
 
