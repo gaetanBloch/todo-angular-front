@@ -10,7 +10,8 @@ import { WelcomeDataService } from '../shared/data/welcome-data.service';
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
   username: string;
-  paramsSubscription: Subscription;
+  welcomeMessage = 'Default Welcome message';
+  private paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private welcomeDataService: WelcomeDataService) {
   }
@@ -23,7 +24,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   getWelcomeMessage(): void {
-    this.welcomeDataService.getHelloWorld().subscribe();
+    this.welcomeDataService.getHelloWorld().subscribe(response => {
+      this.welcomeMessage = response.message;
+    });
   }
 
   ngOnDestroy(): void {
