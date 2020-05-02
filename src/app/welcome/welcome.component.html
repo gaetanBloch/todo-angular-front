@@ -5,8 +5,13 @@
   You can manage your TODO's <a routerLink="/todos">here</a>
   <hr>
   <div class="welcome-container">
-    Click here to get a customized welcome message from the server <br>
+    Click here to get a customized welcome message from the server: <br>
     <button (click)="getWelcomeMessage()" class="btn btn-primary">Get Welcome Message</button>
-    <h2>{{ welcomeMessage }}</h2>
+    <div class="alert alert-info" *ngIf="welcomeMessage">
+      <p>{{ welcomeMessage }}</p>
+    </div>
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      <p>{{ errorMessage }}</p>
+    </div>
   </div>
 </div>

@@ -10,7 +10,8 @@ import { WelcomeDataService } from '../shared/data/welcome-data.service';
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
   username: string;
-  welcomeMessage = 'Default Welcome message';
+  welcomeMessage: string;
+  errorMessage: string;
   private paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private welcomeDataService: WelcomeDataService) {
@@ -26,6 +27,10 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   getWelcomeMessage(): void {
     this.welcomeDataService.getHelloWorld().subscribe(response => {
       this.welcomeMessage = response.message;
+      this.errorMessage = null;
+    }, error => {
+      this.errorMessage = error.message;
+      this.welcomeMessage = null;
     });
   }
 
