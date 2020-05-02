@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HardcodedAuthService } from '../services/hardcoded-auth.service';
+import { HardcodedAuthService } from '../shared/hardcoded-auth.service';
 
 @Component({
   selector: 'app-login',

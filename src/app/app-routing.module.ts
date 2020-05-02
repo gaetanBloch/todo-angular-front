@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
