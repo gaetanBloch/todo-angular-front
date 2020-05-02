@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 
 import { Todo } from '../shared/model/todo.model';
@@ -14,19 +15,24 @@ import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
 })
 export class ListTodosComponent implements OnInit, OnDestroy {
   todos: Todo[];
-  faTrashAlt = faTrashAlt;
   username: string;
   message: string;
+  faTrashAlt = faTrashAlt;
+  faEdit = faEdit;
   private getTodosSubscription: Subscription;
   private deleteTodoSubscription: Subscription;
 
-  constructor(private todoDataService: TodoDataService) {
+  constructor(private todoDataService: TodoDataService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
     this.refreshTodoTable(() => {
     });
+  }
+
+  onUpdate(id: number): void {
+    this.router.navigate(['todos', id]);
   }
 
   onDelete(id: number): void {

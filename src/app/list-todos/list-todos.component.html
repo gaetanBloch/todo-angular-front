@@ -6,7 +6,8 @@
     <th>Description</th>
     <th>Target Date</th>
     <th>Is Completed ?</th>
-    <th>Actions</th>
+    <th>Update</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -14,6 +15,12 @@
     <td>{{ todo.description }}</td>
     <td>{{ todo.targetDate | date }}</td>
     <td>{{ todo.done }}</td>
+    <td>
+      <button class="btn btn-success" (click)="onUpdate(todo.id)">
+        <fa-icon [icon]="faEdit"></fa-icon>
+        Update
+      </button>
+    </td>
     <td>
       <button class="btn btn-danger" (click)="onDelete(todo.id)">
         <fa-icon [icon]="faTrashAlt"></fa-icon>

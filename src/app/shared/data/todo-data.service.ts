@@ -14,7 +14,11 @@ export class TodoDataService {
     return this.http.get<Todo[]>(`/api/users/${username}/todos`);
   }
 
-  deleteTodo(username: string, id: number): Observable<Todo[]> {
-    return this.http.delete<Todo[]>(`/api/users/${username}/todos/${id}`);
+  updateTodo(username: string, id: number): Observable<Todo> {
+    return this.http.put<Todo>(`/api/users/${username}/todos/${id}`, {});
+  }
+
+  deleteTodo(username: string, id: number): Observable<void> {
+    return this.http.delete<void>(`/api/users/${username}/todos/${id}`);
   }
 }

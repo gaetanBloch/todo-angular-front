@@ -5,6 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'welcome/:username', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'todos', component: ListTodosComponent, canActivate: [AuthGuard]},
+  {path: 'todos/:id', component: TodoComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
