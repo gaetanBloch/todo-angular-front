@@ -13,6 +13,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   welcomeMessage: string;
   errorMessage: string;
   private paramsSubscription: Subscription;
+  private welcomeSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private welcomeDataService: WelcomeDataService) {
   }
@@ -25,7 +26,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   getWelcomeMessage(): void {
-    this.welcomeDataService.getHelloWorld().subscribe(response => {
+    this.welcomeSubscription = this.welcomeDataService.getHelloWorld().subscribe(response => {
       this.welcomeMessage = response.message;
       this.errorMessage = null;
     }, error => {
@@ -37,6 +38,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.paramsSubscription) {
       this.paramsSubscription.unsubscribe();
+    }
+    if (this.welcomeSubscription) {
+      this.welcomeSubscription.unsubscribe();
     }
   }
 }
