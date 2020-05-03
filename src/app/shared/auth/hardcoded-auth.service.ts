@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class HardcodedAuthService {
   public static readonly USER = 'user';
 
   constructor(private router: Router) {
+  }
+
+  static createBasicAuthenticationHttpHeader(): HttpHeaders {
+    const username = 'gbloch';
+    const password = 'dummy';
+    const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    return new HttpHeaders({
+      Authorization: basicAuthHeaderString
+    });
   }
 
   login(username: string, password: string): boolean {
