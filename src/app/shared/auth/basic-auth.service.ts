@@ -29,6 +29,10 @@ export class BasicAuthService {
     return sessionStorage.getItem(BasicAuthService.USER) != null;
   }
 
+  getUser(): User {
+    return JSON.parse(sessionStorage.getItem(BasicAuthService.USER));
+  }
+
   getUsername(): string {
     return JSON.parse(sessionStorage.getItem(BasicAuthService.USER)).username;
   }
