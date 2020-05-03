@@ -22,6 +22,10 @@ export class TodoDataService {
     return this.http.put<Todo>(`/api/users/${username}/todos/${id}`, todo);
   }
 
+  createTodo(username: string, todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(`/api/users/${username}/todos`, todo);
+  }
+
   deleteTodo(username: string, id: number): Observable<void> {
     return this.http.delete<void>(`/api/users/${username}/todos/${id}`);
   }

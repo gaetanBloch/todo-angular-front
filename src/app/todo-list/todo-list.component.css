@@ -1,5 +1,9 @@
-.alert {
+.add-button {
   margin: 15px;
+}
+
+.alert {
+  margin: 0 15px 15px 15px;
 }
 
 .spinner {

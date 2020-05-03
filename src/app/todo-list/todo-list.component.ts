@@ -32,6 +32,10 @@ export class TodoListComponent implements OnInit, OnDestroy {
     });
   }
 
+  onAdd() {
+    this.router.navigate(['/todos', 'new']);
+  }
+
   onUpdate(id: number): void {
     this.router.navigate(['todos', id, 'edit']);
   }
