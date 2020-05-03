@@ -68,5 +68,8 @@ export class TodoComponent implements OnInit, OnDestroy {
     if (this.updateTodoSubscription) {
       this.updateTodoSubscription.unsubscribe();
     }
+    if (this.createTodoSubscription) {
+      this.createTodoSubscription.unsubscribe();
+    }
   }
 }
