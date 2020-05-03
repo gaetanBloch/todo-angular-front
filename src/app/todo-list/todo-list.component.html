@@ -26,13 +26,13 @@
                  (click)="onToggleDone($event.target['checked'], todo)">
       </td>
       <td>
-        <button class="btn btn-success" (click)="onUpdate(todo.id)">
+        <button class="btn btn-success btn-sm" (click)="onUpdate(todo.id)">
           <fa-icon [icon]="faEdit"></fa-icon>
           Update
         </button>
       </td>
       <td>
-        <button class="btn btn-danger" (click)="onDelete(todo.id)">
+        <button class="btn btn-danger btn-sm" (click)="onDelete(todo.id)">
           <fa-icon [icon]="faTrashAlt"></fa-icon>
           Delete
         </button>

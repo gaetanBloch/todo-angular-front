@@ -12,4 +12,5 @@
 
 input {
   box-shadow: none !important;
+  height: calc(1em + .5rem + 2px);;
 }
