@@ -3,7 +3,6 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Observable } from 'rxjs';
 
 import { BasicAuthService } from './basic-auth.service';
-import { User } from '../model/user.model';
 
 @Injectable({providedIn: 'root'})
 export class HttpBasicAuthInterceptorService implements HttpInterceptor {
@@ -12,13 +11,11 @@ export class HttpBasicAuthInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let user = this.authService.getUser();
-    if (!user) {
-      user = new User('gbloch', 'dummy');
+    const user = this.authService.getUser();
+    if (user) {
+      const newRequest = req.clone({setHeaders: {Authorization: user.authenticationToken}});
+      return next.handle(newRequest);
     }
-    // todo fix
-    const basicAuthHeaderString = 'Basic ' + window.btoa(user.username + ':' + user);
-    const newRequest = req.clone({setHeaders: {Authorization: basicAuthHeaderString}});
-    return next.handle(newRequest);
+    return next.handle(req);
   }
 }
