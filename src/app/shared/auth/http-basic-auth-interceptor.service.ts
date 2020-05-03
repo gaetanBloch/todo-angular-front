@@ -16,7 +16,8 @@ export class HttpBasicAuthInterceptorService implements HttpInterceptor {
     if (!user) {
       user = new User('gbloch', 'dummy');
     }
-    const basicAuthHeaderString = 'Basic ' + window.btoa(user.username + ':' + user.password);
+    // todo fix
+    const basicAuthHeaderString = 'Basic ' + window.btoa(user.username + ':' + user);
     const newRequest = req.clone({setHeaders: {Authorization: basicAuthHeaderString}});
     return next.handle(newRequest);
   }

@@ -19,7 +19,7 @@ export class BasicAuthService {
     });
     return this.http.get('/api/basicauth', {headers}).pipe(tap(() => {
       sessionStorage.setItem(BasicAuthService.USER, JSON.stringify(
-        new User(username, password)
+        new User(username, basicAuthHeaderString)
       ));
     }));
   }
