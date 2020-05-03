@@ -7,7 +7,6 @@ import { Todo } from '../shared/model/todo.model';
 import { TodoDataService } from '../shared/data/todo-data.service';
 import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
 
-
 @Component({
   selector: 'app-list-todos',
   templateUrl: './list-todos.component.html',
@@ -17,6 +16,7 @@ export class ListTodosComponent implements OnInit, OnDestroy {
   todos: Todo[];
   username: string;
   message: string;
+  isLoading = false;
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
   private getTodosSubscription: Subscription;
@@ -28,6 +28,7 @@ export class ListTodosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
     this.refreshTodoTable(() => {
+      this.isLoading = false;
     });
   }
 
@@ -41,6 +42,7 @@ export class ListTodosComponent implements OnInit, OnDestroy {
         this.refreshTodoTable(() => {
           this.message = `Delete successful for id = ${id}`;
           setTimeout(() => this.message = null, 5000);
+          this.isLoading = false;
         });
       });
   }
@@ -55,6 +57,7 @@ export class ListTodosComponent implements OnInit, OnDestroy {
   }
 
   private refreshTodoTable(callback: () => any) {
+    this.isLoading = true;
     this.getTodosSubscription = this.todoDataService.getAllTodos(this.username)
       .subscribe(todos => {
         this.todos = todos;
