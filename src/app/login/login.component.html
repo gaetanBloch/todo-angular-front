@@ -6,30 +6,35 @@
              class="img-fluid"
              alt="Angular 9">
       </div>
-      <div class="alert alert-danger" *ngIf="invalidLogin">Invalid Credentials</div>
-      <form (ngSubmit)="onSubmit()" #form="ngForm">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input class="form-control"
-                 type="text"
-                 id="username"
-                 name="username"
-                 required
-                 [(ngModel)]="username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input class="form-control"
-                 type="password"
-                 id="password"
-                 name="password"
-                 required
-                 [(ngModel)]="password">
-        </div>
-        <div class="text-center">
-          <button class="btn btn-primary" type="submit">Login</button>
-        </div>
-      </form>
+      <div class="text-center spinner" *ngIf="isLoading">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <div *ngIf="!isLoading ">
+        <div class="alert alert-danger" *ngIf="invalidLogin">Invalid Credentials</div>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control"
+                   type="text"
+                   id="username"
+                   name="username"
+                   required
+                   [(ngModel)]="username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control"
+                   type="password"
+                   id="password"
+                   name="password"
+                   required
+                   [(ngModel)]="password">
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
