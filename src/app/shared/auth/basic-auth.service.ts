@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
@@ -13,7 +13,11 @@ export class BasicAuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.get('/api/basicauth').pipe(tap(() => {
+    const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    const headers = new HttpHeaders({
+      Authorization: basicAuthHeaderString
+    });
+    return this.http.get('/api/basicauth', {headers}).pipe(tap(() => {
       sessionStorage.setItem(BasicAuthService.USER, JSON.stringify(
         new User(username, password)
       ));
