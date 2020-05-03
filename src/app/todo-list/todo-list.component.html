@@ -23,7 +23,7 @@
       <td><input class="form-control"
                  type="checkbox"
                  [checked]="todo.done"
-                 (click)="onToggleDone($event.target.checked, todo)">
+                 (click)="onToggleDone($event.target['checked'], todo)">
       </td>
       <td>
         <button class="btn btn-success" (click)="onUpdate(todo.id)">
