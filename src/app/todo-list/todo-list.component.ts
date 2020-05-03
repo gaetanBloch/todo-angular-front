@@ -21,6 +21,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
   faEdit = faEdit;
   private getTodosSubscription: Subscription;
   private deleteTodoSubscription: Subscription;
+  private updateTodoSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService, private router: Router) {
   }
@@ -51,6 +52,13 @@ export class TodoListComponent implements OnInit, OnDestroy {
       });
   }
 
+  onToggleDone(checked: boolean, todo: Todo) {
+    todo.done = checked;
+    this.updateTodoSubscription = this.todoDataService.updateTodo(this.username, todo.id, todo)
+      .subscribe(() => {
+      });
+  }
+
   ngOnDestroy(): void {
     if (this.getTodosSubscription) {
       this.getTodosSubscription.unsubscribe();
@@ -58,9 +66,12 @@ export class TodoListComponent implements OnInit, OnDestroy {
     if (this.deleteTodoSubscription) {
       this.deleteTodoSubscription.unsubscribe();
     }
+    if (this.updateTodoSubscription) {
+      this.updateTodoSubscription.unsubscribe();
+    }
   }
 
-  private refreshTodoTable(callback: () => any) {
+  private refreshTodoTable(callback: () => void) {
     this.isLoading = true;
     this.getTodosSubscription = this.todoDataService.getAllTodos(this.username)
       .subscribe(todos => {

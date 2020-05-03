@@ -38,7 +38,7 @@ export class TodoComponent implements OnInit, OnDestroy {
           this.isLoading = false;
         });
     } else {
-      this.todo = new Todo(-1, '', null, false);
+      this.todo = new Todo(-1, '', new Date(), false);
       this.isUpdate = false;
     }
   }
