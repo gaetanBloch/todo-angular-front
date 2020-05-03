@@ -7,11 +7,11 @@ import {
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { HardcodedAuthService } from './hardcoded-auth.service';
+import { BasicAuthService } from './basic-auth.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
-  constructor(private authService: HardcodedAuthService, private router: Router) {
+  constructor(private authService: BasicAuthService, private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):

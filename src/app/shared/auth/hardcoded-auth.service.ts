@@ -4,7 +4,7 @@ import { User } from '../model/user.model';
 
 @Injectable({providedIn: 'root'})
 export class HardcodedAuthService {
-  public static readonly USER = 'user';
+  private static readonly USER = 'user';
 
   constructor(private router: Router) {
   }

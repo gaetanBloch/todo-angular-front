@@ -1,9 +1,9 @@
 export class User {
   username: string;
-  authenticationToken: string;
+  password: string;
 
-  constructor(username: string, authenticationToken: string) {
+  constructor(username: string, password: string) {
     this.username = username;
-    this.authenticationToken = authenticationToken;
+    this.password = password;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
+import { BasicAuthService } from '../shared/auth/basic-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
 export class HeaderComponent implements OnInit {
   collapsed = true;
 
-  constructor(public authService: HardcodedAuthService) {
+  constructor(public authService: BasicAuthService) {
   }
 
   ngOnInit(): void {
