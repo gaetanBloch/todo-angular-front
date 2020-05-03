@@ -15,7 +15,11 @@
                    id="description"
                    name="description"
                    required
-                   [(ngModel)]="todo.description">
+                   [(ngModel)]="todo.description"
+                   #description="ngModel">
+            <span class="help-block" *ngIf="description.invalid && description.touched">
+              The description is required!
+            </span>
           </fieldset>
           <fieldset class="form-group">
             <label for="date">Target Date</label>
@@ -25,7 +29,11 @@
                    name="date"
                    required
                    [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'"
-                   (ngModelChange)="todo.targetDate = $event">
+                   (ngModelChange)="todo.targetDate = $event"
+                   #targetDate="ngModel">
+            <span class="help-block" *ngIf="targetDate.invalid && targetDate.touched">
+              The target date is required!
+            </span>
           </fieldset>
           <div class="text-center">
             <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
