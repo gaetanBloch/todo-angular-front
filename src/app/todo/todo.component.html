@@ -1,1 +1,29 @@
-<p>todo works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <fieldset class="form-group">
+          <label for="description">Description</label>
+          <input class="form-control"
+                 type="text"
+                 id="description"
+                 name="description"
+                 required
+                 ngModel>
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="date">Target Date</label>
+          <input class="form-control"
+                 type="date"
+                 id="date"
+                 name="date"
+                 required
+                 ngModel>
+        </fieldset>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
