@@ -32,7 +32,7 @@ export class ListTodosComponent implements OnInit, OnDestroy {
   }
 
   onUpdate(id: number): void {
-    this.router.navigate(['todos', id]);
+    this.router.navigate(['todos', id, 'edit']);
   }
 
   onDelete(id: number): void {

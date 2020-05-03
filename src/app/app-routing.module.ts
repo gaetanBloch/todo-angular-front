@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'welcome/:username', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'todos', component: ListTodosComponent, canActivate: [AuthGuard]},
-  {path: 'todos/:id', component: TodoComponent, canActivate: [AuthGuard]},
+  {path: 'todos/new', component: TodoComponent, canActivate: [AuthGuard]},
+  {path: 'todos/:id/edit', component: TodoComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
