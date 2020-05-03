@@ -9,7 +9,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ListTodosComponent } from './list-todos/list-todos.component';
+import { TodoListComponent } from './list-todos/todo-list.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TodoComponent } from './todo/todo.component';
@@ -21,7 +21,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     WelcomeComponent,
     LoginComponent,
     NotFoundComponent,
-    ListTodosComponent,
+    TodoListComponent,
     HeaderComponent,
     FooterComponent,
     TodoComponent,

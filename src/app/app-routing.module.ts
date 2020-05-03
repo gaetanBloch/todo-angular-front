@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ListTodosComponent } from './list-todos/list-todos.component';
+import { TodoListComponent } from './list-todos/todo-list.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { TodoComponent } from './todo/todo.component';
 
@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'welcome/:username', component: WelcomeComponent, canActivate: [AuthGuard]},
-  {path: 'todos', component: ListTodosComponent, canActivate: [AuthGuard]},
+  {path: 'todos', component: TodoListComponent, canActivate: [AuthGuard]},
   {path: 'todos/new', component: TodoComponent, canActivate: [AuthGuard]},
   {path: 'todos/:id/edit', component: TodoComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
