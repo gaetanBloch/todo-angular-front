@@ -9,7 +9,7 @@
                  id="description"
                  name="description"
                  required
-                 [ngModel]="todo.description">
+                 [ngModel]="description">
         </fieldset>
         <fieldset class="form-group">
           <label for="date">Target Date</label>
@@ -18,7 +18,7 @@
                  id="date"
                  name="date"
                  required
-                 [ngModel]="todo.targetDate">
+                 [ngModel]="targetDate | date: 'yyyy-MM-dd'">
         </fieldset>
         <div class="text-center">
           <button class="btn btn-primary" type="submit">Save</button>

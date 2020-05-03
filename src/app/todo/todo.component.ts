@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { TodoDataService } from '../shared/data/todo-data.service';
 import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { Todo } from '../shared/model/todo.model';
 
 @Component({
   selector: 'app-todo',
@@ -13,18 +12,21 @@ import { Todo } from '../shared/model/todo.model';
 })
 export class TodoComponent implements OnInit, OnDestroy {
   username: string;
-  todo: Todo;
+  description: string;
+  targetDate: Date;
   private getTodoSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    // Init
     this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
     const id = this.route.snapshot.params.id;
     this.getTodoSubscription = this.todoDataService.getTodo(this.username, id)
       .subscribe(todo => {
-        this.todo = todo;
+        this.description = todo.description;
+        this.targetDate = todo.targetDate;
       });
   }
 
