@@ -18,6 +18,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   isLoading = false;
   private paramsSubscription: Subscription;
   private getTodoSubscription: Subscription;
+  private updateTodoSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService,
               private route: ActivatedRoute,
@@ -42,9 +43,11 @@ export class TodoComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.isUpdate) {
-      this.todoDataService.updateTodo(this.username, this.todo.id, this.todo).subscribe(() => {
-        this.router.navigate(['/todos']);
-      });
+      this.updateTodoSubscription = this.todoDataService
+        .updateTodo(this.username, this.todo.id, this.todo)
+        .subscribe(() => {
+          this.router.navigate(['/todos']);
+        });
     }
   }
 
@@ -54,6 +57,9 @@ export class TodoComponent implements OnInit, OnDestroy {
     }
     if (this.getTodoSubscription) {
       this.getTodoSubscription.unsubscribe();
+    }
+    if (this.updateTodoSubscription) {
+      this.updateTodoSubscription.unsubscribe();
     }
   }
 }
