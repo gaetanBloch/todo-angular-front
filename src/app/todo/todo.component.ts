@@ -19,12 +19,13 @@ export class TodoComponent implements OnInit, OnDestroy {
   private paramsSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService,
+              private authService: HardcodedAuthService,
               private route: ActivatedRoute,
               private router: Router) {
   }
 
   ngOnInit(): void {
-    this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
+    this.username = this.authService.getUsername();
     const id = +this.route.snapshot.params.id;
     if (id) {
       this.isLoading = true;

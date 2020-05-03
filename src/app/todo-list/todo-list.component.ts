@@ -19,11 +19,13 @@ export class TodoListComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
-  constructor(private todoDataService: TodoDataService, private router: Router) {
+  constructor(private todoDataService: TodoDataService,
+              private authService: HardcodedAuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
-    this.username = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
+    this.username = this.authService.getUsername();
     this.refreshTodoTable(() => {
       this.isLoading = false;
     });

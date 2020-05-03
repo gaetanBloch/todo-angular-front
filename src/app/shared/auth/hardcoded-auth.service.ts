@@ -28,4 +28,8 @@ export class HardcodedAuthService {
   isAuthenticated(): boolean {
     return sessionStorage.getItem(HardcodedAuthService.USER) != null;
   }
+
+  getUsername(): string {
+    return JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
+  }
 }

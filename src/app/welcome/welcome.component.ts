@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WelcomeDataService } from '../shared/data/welcome-data.service';
 import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
-import { User } from '../shared/model/user.model';
 
 @Component({
   selector: 'app-welcome',
@@ -16,7 +15,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   errorMessage: string;
   private paramsSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private welcomeDataService: WelcomeDataService) {
+  constructor(private route: ActivatedRoute,
+              private welcomeDataService: WelcomeDataService,
+              private authService: HardcodedAuthService) {
   }
 
   ngOnInit(): void {
@@ -24,8 +25,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     this.paramsSubscription = this.route.params.subscribe(params => {
       this.username = params.username;
       if (!this.username) {
-        const user: User = JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER));
-        this.username = user.username;
+        this.username = this.authService.getUsername();
       }
     });
   }
