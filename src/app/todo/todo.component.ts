@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 import { TodoDataService } from '../shared/data/todo-data.service';
 import { HardcodedAuthService } from '../shared/auth/hardcoded-auth.service';
-import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../shared/model/todo.model';
 
 @Component({
@@ -18,7 +19,9 @@ export class TodoComponent implements OnInit, OnDestroy {
   private paramsSubscription: Subscription;
   private getTodoSubscription: Subscription;
 
-  constructor(private todoDataService: TodoDataService, private route: ActivatedRoute) {
+  constructor(private todoDataService: TodoDataService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,6 +41,11 @@ export class TodoComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
+    if (this.isUpdate) {
+      this.todoDataService.updateTodo(this.username, this.todo.id, this.todo).subscribe(() => {
+        this.router.navigate(['/todos']);
+      });
+    }
   }
 
   ngOnDestroy(): void {

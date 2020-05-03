@@ -4,29 +4,36 @@
       <div class="text-center" *ngIf="isUpdate && isLoading">
         <app-loading-spinner></app-loading-spinner>
       </div>
-      <form (ngSubmit)="onSubmit()" #form="ngForm" *ngIf="!isUpdate || !isLoading">
-        <fieldset class="form-group">
-          <label for="description">Description</label>
-          <input class="form-control"
-                 type="text"
-                 id="description"
-                 name="description"
-                 required
-                 [ngModel]="todo.description">
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="date">Target Date</label>
-          <input class="form-control"
-                 type="date"
-                 id="date"
-                 name="date"
-                 required
-                 [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'">
-        </fieldset>
-        <div class="text-center">
-          <button class="btn btn-primary" type="submit">Save</button>
-        </div>
-      </form>
+
+      <div *ngIf="!isUpdate || !isLoading">
+        <h1 class="text-center">{{ isUpdate ? 'Update Todo' : 'Create Todo' }}</h1>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+          <fieldset class="form-group">
+            <label for="description">Description</label>
+            <input class="form-control"
+                   type="text"
+                   id="description"
+                   name="description"
+                   required
+                   [(ngModel)]="todo.description">
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="date">Target Date</label>
+            <input class="form-control"
+                   type="date"
+                   id="date"
+                   name="date"
+                   required
+                   [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'"
+                   (ngModelChange)="todo.targetDate = $event">
+          </fieldset>
+          <div class="text-center">
+            <button class="btn btn-primary" type="submit">
+              {{ isUpdate ? 'Update' : 'Create' }}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
