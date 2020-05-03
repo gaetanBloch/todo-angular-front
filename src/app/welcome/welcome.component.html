@@ -1,19 +1,21 @@
 <div class="container text-center">
-  <h1>Welcome!</h1>
-  Welcome to the application, <strong>{{ username }}</strong>
-  <br><br>
-  You can manage your TODO's <a routerLink="/todos">here</a>
-  <hr>
-  <div class="welcome-container">
-    Click here to get a customized welcome message from the server: <br>
-    <button (click)="getWelcomeMessageWithParam()" class="btn btn-primary">
-      Get Welcome Message
-    </button>
-    <div class="alert alert-info" *ngIf="welcomeMessage">
-      <p>{{ welcomeMessage }}</p>
-    </div>
-    <div class="alert alert-danger" *ngIf="errorMessage">
-      <p>{{ errorMessage }}</p>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
+      <h1>Welcome!</h1>
+      Welcome to the application, <strong>{{ username }}</strong>
+      <br><br>
+      You can manage your TODO's <a routerLink="/todos">here</a>
+      <hr>
+      Click here to get a customized welcome message from the server: <br>
+      <button (click)="getWelcomeMessageWithParam()" class="btn btn-primary">
+        Get Welcome Message
+      </button>
+      <div class="alert alert-info" *ngIf="welcomeMessage">
+        {{ welcomeMessage }}
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
     </div>
   </div>
 </div>
