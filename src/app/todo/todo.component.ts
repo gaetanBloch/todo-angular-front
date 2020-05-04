@@ -39,7 +39,7 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       });
     } else {
-      this.todo = new Todo(-1, '', new Date(), false);
+      this.todo = new Todo(-1, this.username, new Date(), false);
       this.isUpdate = false;
     }
   }
@@ -52,7 +52,6 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.errorMessage = error.error;
       });
     } else {
-      this.todo.username = this.username;
       this.todoDataService.createTodo(this.username, this.todo).subscribe(() => {
         this.router.navigate(['/todos']);
       }, error => {
