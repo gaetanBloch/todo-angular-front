@@ -4,7 +4,7 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { Todo } from '../shared/model/todo.model';
 import { TodoDataService } from '../shared/data/todo-data.service';
-import { BasicAuthService } from '../shared/auth/basic-auth.service';
+import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-list-todos',
@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   faEdit = faEdit;
 
   constructor(private todoDataService: TodoDataService,
-              private authService: BasicAuthService,
+              private authService: JwtAuthService,
               private router: Router) {
   }
 

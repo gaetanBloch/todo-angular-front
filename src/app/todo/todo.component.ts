@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { TodoDataService } from '../shared/data/todo-data.service';
 import { Todo } from '../shared/model/todo.model';
-import { BasicAuthService } from '../shared/auth/basic-auth.service';
+import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-todo',
@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   private paramsSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService,
-              private authService: BasicAuthService,
+              private authService: JwtAuthService,
               private route: ActivatedRoute,
               private router: Router) {
   }

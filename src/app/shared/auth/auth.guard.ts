@@ -7,11 +7,11 @@ import {
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { BasicAuthService } from './basic-auth.service';
+import { JwtAuthService } from './jwt-auth.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
-  constructor(private authService: BasicAuthService, private router: Router) {
+  constructor(private authService: JwtAuthService, private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):

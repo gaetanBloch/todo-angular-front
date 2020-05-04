@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WelcomeDataService } from '../shared/data/welcome-data.service';
-import { BasicAuthService } from '../shared/auth/basic-auth.service';
+import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -17,7 +17,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private welcomeDataService: WelcomeDataService,
-              private authService: BasicAuthService) {
+              private authService: JwtAuthService) {
   }
 
   ngOnInit(): void {

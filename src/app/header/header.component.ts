@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicAuthService } from '../shared/auth/basic-auth.service';
+import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { BasicAuthService } from '../shared/auth/basic-auth.service';
 export class HeaderComponent implements OnInit {
   collapsed = true;
 
-  constructor(public authService: BasicAuthService) {
+  constructor(public authService: JwtAuthService) {
   }
 
   ngOnInit(): void {
