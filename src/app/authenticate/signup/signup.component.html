@@ -49,7 +49,7 @@
       </span>
     </div>
     <div class="text-center">
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid && differentPasswords">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid || differentPasswords">
         Signup
       </button>
     </div>
