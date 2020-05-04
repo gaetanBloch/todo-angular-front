@@ -23,6 +23,17 @@ export class JwtAuthService {
       );
   }
 
+  signup(username: string, password: string): Observable<any> {
+    return this.http.post('/api/signup', {username, password})
+      .pipe(
+        tap(response => {
+          sessionStorage.setItem(JwtAuthService.USER, JSON.stringify(
+            new User(username, `Bearer ${response.token}`)
+          ));
+        })
+      );
+  }
+
   logout() {
     sessionStorage.removeItem(JwtAuthService.USER);
     this.router.navigate(['/auth/login']);

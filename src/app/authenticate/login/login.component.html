@@ -3,7 +3,7 @@
 </div>
 <div *ngIf="!isLoading ">
   <div class="alert alert-danger" *ngIf="invalidLogin">Invalid Credentials</div>
-  <form (ngSubmit)="onSubmit()" #form="ngForm">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
       <input class="form-control"
@@ -11,7 +11,7 @@
              id="username"
              name="username"
              required
-             [(ngModel)]="username"
+             ngModel
              #usernameModel="ngModel">
       <span class="help-block" *ngIf="usernameModel.invalid && usernameModel.touched">
               The username is required!
@@ -24,7 +24,7 @@
              id="password"
              name="password"
              required
-             [(ngModel)]="password"
+             ngModel
              #passwordModel="ngModel">
       <span class="help-block" *ngIf="passwordModel.invalid && passwordModel.touched">
               The password is required!

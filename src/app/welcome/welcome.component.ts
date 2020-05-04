@@ -21,13 +21,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.username = this.route.snapshot.params.username;
-    this.paramsSubscription = this.route.params.subscribe(params => {
-      this.username = params.username;
-      if (!this.username) {
-        this.username = this.authService.getUsername();
-      }
-    });
+    this.username = this.authService.getUsername();
   }
 
   getWelcomeMessageWithParam(): void {

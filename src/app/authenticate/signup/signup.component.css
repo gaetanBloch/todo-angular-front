@@ -1,0 +1,15 @@
+button:disabled:hover {
+  cursor: default;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.help-block {
+  color: red;
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: .35;
+}
