@@ -6,10 +6,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { TodoComponent } from './todo/todo.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { SignupComponent } from './authenticate/signup/signup.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
+  {
+    path: 'auth', component: AuthenticateComponent, children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'signup', component: SignupComponent}
+    ]
+  },
   {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'welcome/:username', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'todos', component: TodoListComponent, canActivate: [AuthGuard]},
