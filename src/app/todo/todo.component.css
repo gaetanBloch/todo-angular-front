@@ -14,6 +14,6 @@ input.ng-invalid.ng-touched {
   color: red;
 }
 
-.btn.disabled {
+.btn.disabled, .btn:disabled {
   opacity: .35;
 }

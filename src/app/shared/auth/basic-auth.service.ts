@@ -26,7 +26,7 @@ export class BasicAuthService {
 
   logout() {
     sessionStorage.removeItem(BasicAuthService.USER);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
   isAuthenticated(): boolean {

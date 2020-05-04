@@ -25,7 +25,7 @@ export class JwtAuthService {
 
   logout() {
     sessionStorage.removeItem(JwtAuthService.USER);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
   isAuthenticated(): boolean {
