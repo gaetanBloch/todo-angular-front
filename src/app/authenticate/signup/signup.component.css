@@ -2,7 +2,7 @@ button:disabled:hover {
   cursor: default;
 }
 
-input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched, input.invalid {
   border: 1px solid red;
 }
 

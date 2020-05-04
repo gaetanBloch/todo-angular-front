@@ -20,11 +20,13 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input class="form-control"
+             [ngClass]="{invalid: errorMessage}"
              type="password"
              id="password"
              name="password"
              required
              ngModel
+             (keyup)="checkPasswordsFirst()"
              #passwordModel="ngModel">
       <span class="help-block" *ngIf="passwordModel.invalid && passwordModel.touched">
               The password is required!
@@ -33,18 +35,23 @@
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
       <input class="form-control"
+             [ngClass]="{invalid: errorMessage}"
              type="password"
              id="confirmPassword"
              name="confirmPassword"
              required
              ngModel
+             (keyup)="checkPasswordsFirst()"
+             (blur)="checkPasswords()"
              #confirmPasswordModel="ngModel">
       <span class="help-block" *ngIf="confirmPasswordModel.invalid && confirmPasswordModel.touched">
               The password confirmation is required!
       </span>
     </div>
     <div class="text-center">
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Login</button>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid && differentPasswords">
+        Login
+      </button>
     </div>
   </form>
 </div>
