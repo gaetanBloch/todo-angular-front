@@ -13,3 +13,7 @@ input.ng-invalid.ng-touched {
 .help-block {
   color: red;
 }
+
+.btn.disabled {
+  opacity: .35;
+}

@@ -9,3 +9,13 @@ input.ng-invalid.ng-touched {
 .help-block {
   color: red;
 }
+
+.btn-primary, .btn-primary.disabled {
+  background-color: #2f27a0;
+  border-color: #2f27a0;
+}
+
+.btn.disabled {
+  opacity: .35;
+}
+
