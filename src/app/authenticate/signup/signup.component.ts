@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  invalidLogin: boolean;
+  errorMessage: string;
   isLoading = false;
 
   constructor(private authService: JwtAuthService, private router: Router) {
@@ -21,11 +21,12 @@ export class SignupComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.isLoading = true;
     this.authService.signup(form.value.username, form.value.password).subscribe(() => {
-      this.invalidLogin = false;
+      this.errorMessage = null;
       this.router.navigate(['welcome']);
       this.isLoading = false;
     }, error => {
-      this.invalidLogin = true;
+      console.log(error);
+      this.errorMessage = error.error;
       this.isLoading = false;
     });
   }

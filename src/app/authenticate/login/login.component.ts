@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  errorMessage: boolean;
+  errorMessage: string;
   isLoading = false;
 
   constructor(private router: Router, private authService: JwtAuthService) {
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['welcome']);
       this.isLoading = false;
     }, error => {
-      this.errorMessage = error.message;
+      this.errorMessage = error.error;
       this.isLoading = false;
     });
   }
