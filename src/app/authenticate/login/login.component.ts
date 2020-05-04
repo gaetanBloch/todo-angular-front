@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  invalidLogin: boolean;
+  errorMessage: boolean;
   isLoading = false;
 
   constructor(private router: Router, private authService: JwtAuthService) {
@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm): void {
     this.isLoading = true;
     this.authService.login(form.value.username, form.value.password).subscribe(() => {
-      this.invalidLogin = false;
+      this.errorMessage = null;
       this.router.navigate(['welcome']);
       this.isLoading = false;
     }, error => {
-      this.invalidLogin = true;
+      this.errorMessage = error.message;
       this.isLoading = false;
     });
   }

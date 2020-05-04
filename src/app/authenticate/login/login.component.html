@@ -2,7 +2,7 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 <div *ngIf="!isLoading ">
-  <div class="alert alert-danger" *ngIf="invalidLogin">Invalid Credentials</div>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
