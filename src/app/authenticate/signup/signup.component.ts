@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
-import { JwtAuthService } from '../../shared/auth/jwt-auth.service';
 import { Router } from '@angular/router';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { JwtAuthService } from '../../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +15,7 @@ export class SignupComponent implements OnInit {
   errorMessage: string;
   isLoading = false;
   differentPasswords = false;
+  faSignInAlt = faSignInAlt;
   @ViewChild('passwordModel', {static: false}) password: NgModel;
   @ViewChild('confirmPasswordModel', {static: false}) confirmPassword: NgModel;
 

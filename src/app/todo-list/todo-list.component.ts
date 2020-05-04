@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { Todo } from '../shared/model/todo.model';
 import { TodoDataService } from '../shared/data/todo-data.service';
@@ -19,6 +19,7 @@ export class TodoListComponent implements OnInit {
   errorMessage: string;
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
+  faPlus = faPlus;
 
   constructor(private todoDataService: TodoDataService,
               private authService: JwtAuthService,

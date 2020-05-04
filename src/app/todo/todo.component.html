@@ -39,6 +39,7 @@
           </fieldset>
           <div class="text-center">
             <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+              <fa-icon [icon]="isUpdate ? faEdit : faPlus"></fa-icon>
               {{ isUpdate ? 'Update' : 'Create' }}
             </button>
           </div>

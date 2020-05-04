@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtAuthService } from '../../shared/auth/jwt-auth.service';
 import { NgForm } from '@angular/forms';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { JwtAuthService } from '../../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   errorMessage: string;
   isLoading = false;
+  faSignInAlt = faSignInAlt;
 
   constructor(private router: Router, private authService: JwtAuthService) {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faHome, faList, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 
 @Component({
@@ -8,6 +10,10 @@ import { JwtAuthService } from '../shared/auth/jwt-auth.service';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
+  faHome = faHome;
+  faList = faList;
+  faSignInAlt = faSignInAlt;
+  faSignOutAlt = faSignOutAlt;
 
   constructor(public authService: JwtAuthService) {
   }

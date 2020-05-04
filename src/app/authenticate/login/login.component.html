@@ -31,7 +31,10 @@
             </span>
     </div>
     <div class="text-center">
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Login</button>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+        <fa-icon [icon]="faSignInAlt"></fa-icon>
+        Login
+      </button>
     </div>
   </form>
 </div>

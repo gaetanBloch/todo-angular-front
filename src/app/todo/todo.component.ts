@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 
 import { TodoDataService } from '../shared/data/todo-data.service';
@@ -17,6 +18,8 @@ export class TodoComponent implements OnInit, OnDestroy {
   isUpdate = false;
   isLoading = false;
   errorMessage: string;
+  faEdit = faEdit;
+  faPlus = faPlus;
   private paramsSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService,
@@ -39,7 +42,7 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       });
     } else {
-      this.todo = new Todo(-1, this.username, new Date(), false);
+      this.todo = new Todo(-1, this.username, '', new Date(), false);
       this.isUpdate = false;
     }
   }
@@ -52,6 +55,7 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.errorMessage = error.error;
       });
     } else {
+      this.todo.username = this.username;
       this.todoDataService.createTodo(this.username, this.todo).subscribe(() => {
         this.router.navigate(['/todos']);
       }, error => {

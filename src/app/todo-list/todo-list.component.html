@@ -5,7 +5,10 @@
 <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 
 <div *ngIf="!isLoading">
-  <button class="btn btn-primary add-button" (click)="onAdd()">Add Todo</button>
+  <button class="btn btn-primary add-button" (click)="onAdd()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+    Create Todo
+  </button>
 
   <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
 
