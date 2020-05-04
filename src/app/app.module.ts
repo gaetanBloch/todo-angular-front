@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authenticate/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { TodoComponent } from './todo/todo.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { HttpBasicAuthInterceptorService } from './shared/auth/http-basic-auth-interceptor.service';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { SignupComponent } from './authenticate/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpBasicAuthInterceptorService } from './shared/auth/http-basic-auth-i
     HeaderComponent,
     FooterComponent,
     TodoComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AuthenticateComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

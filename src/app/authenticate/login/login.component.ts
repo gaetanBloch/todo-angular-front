@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtAuthService } from '../shared/auth/jwt-auth.service';
+import { JwtAuthService } from '../../shared/auth/jwt-auth.service';
 
 @Component({
   selector: 'app-login',
