@@ -2,6 +2,15 @@ button {
   margin: 10px 0;
 }
 
-.welcome-container {
-  margin-top: 20px;
+.container {
+  margin-top: 200px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.welcome-message {
+  font-size: 20px;
+  margin-top: 10px;
 }

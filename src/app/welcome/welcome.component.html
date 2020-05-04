@@ -1,21 +1,19 @@
 <div class="container text-center">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
-      <h1>Welcome!</h1>
-      Welcome to the application, <strong>{{ username }}</strong>
-      <br><br>
-      You can manage your TODO's <a routerLink="/todos">here</a>
-      <hr>
-      Click here to get a customized welcome message from the server: <br>
-      <button (click)="getWelcomeMessageWithParam()" class="btn btn-primary">
-        Get Welcome Message
+
+      <h1>
+        <fa-icon [icon]="faDoorOpen"></fa-icon>
+        Welcome
+      </h1>
+      <div class="welcome-message">
+        Welcome to the application, <strong>{{ username }}</strong>.
+      </div>
+      <br>
+      <button class="btn btn-primary btn-lg" routerLink="/todos">
+        <fa-icon [icon]="faList"></fa-icon>
+        Manage your Todo List
       </button>
-      <div class="alert alert-info" *ngIf="welcomeMessage">
-        {{ welcomeMessage }}
-      </div>
-      <div class="alert alert-danger" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
     </div>
   </div>
 </div>
