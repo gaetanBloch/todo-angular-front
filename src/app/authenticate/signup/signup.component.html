@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input class="form-control"
-             [ngClass]="{invalid: errorMessage}"
+             [ngClass]="{invalid: differentPasswords}"
              type="password"
              id="password"
              name="password"
@@ -35,7 +35,7 @@
     <div class="form-group">
       <label for="confirmPassword">Confirm Password</label>
       <input class="form-control"
-             [ngClass]="{invalid: errorMessage}"
+             [ngClass]="{invalid: differentPasswords}"
              type="password"
              id="confirmPassword"
              name="confirmPassword"
