@@ -2,8 +2,13 @@
   <app-loading-spinner></app-loading-spinner>
 </div>
 
+<div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
 <div *ngIf="!isLoading">
   <button class="btn btn-primary add-button" (click)="onAdd()">Add Todo</button>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
   <div class="alert alert-success" *ngIf="message">{{ message }}</div>
 
   <table class="table table-striped table-hover text-center">

@@ -29,7 +29,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
       this.welcomeMessage = response.message;
       this.errorMessage = null;
     }, error => {
-      this.errorMessage = error.message;
+      this.errorMessage = error.error;
       this.welcomeMessage = null;
     });
   }

@@ -1,12 +1,14 @@
 <div class="container form-container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6">
+
       <div class="text-center" *ngIf="isUpdate && isLoading">
         <app-loading-spinner></app-loading-spinner>
       </div>
 
       <div *ngIf="!isUpdate || !isLoading">
         <h1 class="text-center">{{ isUpdate ? 'Update Todo' : 'Create Todo' }}</h1>
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
         <form (ngSubmit)="onSubmit()" #form="ngForm">
           <fieldset class="form-group">
             <label for="description">Description</label>

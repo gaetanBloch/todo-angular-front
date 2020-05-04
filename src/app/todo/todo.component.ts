@@ -16,6 +16,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   todo: Todo;
   isUpdate = false;
   isLoading = false;
+  errorMessage: string;
   private paramsSubscription: Subscription;
 
   constructor(private todoDataService: TodoDataService,
@@ -33,6 +34,9 @@ export class TodoComponent implements OnInit, OnDestroy {
       this.todoDataService.getTodo(this.username, id).subscribe(todo => {
         this.todo = todo;
         this.isLoading = false;
+      }, error => {
+        this.errorMessage = error.error;
+        this.isLoading = false;
       });
     } else {
       this.todo = new Todo(-1, '', new Date(), false);
@@ -44,10 +48,14 @@ export class TodoComponent implements OnInit, OnDestroy {
     if (this.isUpdate) {
       this.todoDataService.updateTodo(this.username, this.todo.id, this.todo).subscribe(() => {
         this.router.navigate(['/todos']);
+      }, error => {
+        this.errorMessage = error.error;
       });
     } else {
       this.todoDataService.createTodo(this.username, this.todo).subscribe(() => {
         this.router.navigate(['/todos']);
+      }, error => {
+        this.errorMessage = error.error;
       });
     }
   }

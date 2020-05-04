@@ -45,7 +45,6 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['welcome']);
       this.isLoading = false;
     }, error => {
-      console.log(error);
       this.errorMessage = error.error;
       this.isLoading = false;
     });

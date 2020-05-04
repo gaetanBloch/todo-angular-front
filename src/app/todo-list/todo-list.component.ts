@@ -16,6 +16,7 @@ export class TodoListComponent implements OnInit {
   username: string;
   message: string;
   isLoading = false;
+  errorMessage: string;
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
 
@@ -46,12 +47,16 @@ export class TodoListComponent implements OnInit {
         setTimeout(() => this.message = null, 5000);
         this.isLoading = false;
       });
+    }, error => {
+      this.errorMessage = error.error;
     });
   }
 
   onToggleDone(checked: boolean, todo: Todo) {
     todo.done = checked;
     this.todoDataService.updateTodo(this.username, todo.id, todo).subscribe(() => {
+    }, error => {
+      this.errorMessage = error.error;
     });
   }
 
@@ -60,6 +65,9 @@ export class TodoListComponent implements OnInit {
     this.todoDataService.getAllTodos(this.username).subscribe(todos => {
       this.todos = todos;
       callback();
+    }, error => {
+      this.isLoading = false;
+      this.errorMessage = error.error;
     });
   }
 }
