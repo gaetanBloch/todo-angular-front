@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class JwtAuthService {
-  private static readonly USER = 'user';
+  private static readonly USER = 'user-todo';
 
   constructor(private router: Router, private http: HttpClient) {
   }
