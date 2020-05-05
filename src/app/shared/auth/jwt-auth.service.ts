@@ -16,7 +16,7 @@ export class JwtAuthService {
     return this.http.post('/api/authenticate', {username, password})
       .pipe(
         tap(response => {
-          localStorage.setItem(JwtAuthService.USER, JSON.stringify(
+          sessionStorage.setItem(JwtAuthService.USER, JSON.stringify(
             new User(username, `Bearer ${response.token}`)
           ));
         })
@@ -27,7 +27,7 @@ export class JwtAuthService {
     return this.http.post('/api/signup', {username, password})
       .pipe(
         tap(response => {
-          localStorage.setItem(JwtAuthService.USER, JSON.stringify(
+          sessionStorage.setItem(JwtAuthService.USER, JSON.stringify(
             new User(username, `Bearer ${response.token}`)
           ));
         })
@@ -35,19 +35,19 @@ export class JwtAuthService {
   }
 
   logout() {
-    localStorage.removeItem(JwtAuthService.USER);
+    sessionStorage.removeItem(JwtAuthService.USER);
     this.router.navigate(['/auth/login']);
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem(JwtAuthService.USER) != null;
+    return sessionStorage.getItem(JwtAuthService.USER) != null;
   }
 
   getUser(): User {
-    return JSON.parse(localStorage.getItem(JwtAuthService.USER));
+    return JSON.parse(sessionStorage.getItem(JwtAuthService.USER));
   }
 
   getUsername(): string {
-    return JSON.parse(localStorage.getItem(JwtAuthService.USER)).username;
+    return JSON.parse(sessionStorage.getItem(JwtAuthService.USER)).username;
   }
 }

@@ -11,7 +11,7 @@ export class HardcodedAuthService {
 
   login(username: string, password: string): boolean {
     if (username === 'gbloch' && password === 'dummy') {
-      localStorage.setItem(HardcodedAuthService.USER, JSON.stringify(
+      sessionStorage.setItem(HardcodedAuthService.USER, JSON.stringify(
         new User(username, username)
       ));
       return true;
@@ -21,15 +21,15 @@ export class HardcodedAuthService {
   }
 
   logout() {
-    localStorage.removeItem(HardcodedAuthService.USER);
+    sessionStorage.removeItem(HardcodedAuthService.USER);
     this.router.navigate(['/auth/login']);
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem(HardcodedAuthService.USER) != null;
+    return sessionStorage.getItem(HardcodedAuthService.USER) != null;
   }
 
   getUsername(): string {
-    return JSON.parse(localStorage.getItem(HardcodedAuthService.USER)).username;
+    return JSON.parse(sessionStorage.getItem(HardcodedAuthService.USER)).username;
   }
 }

@@ -18,26 +18,26 @@ export class BasicAuthService {
       Authorization: basicAuthHeaderString
     });
     return this.http.get('/api/basicauth', {headers}).pipe(tap(() => {
-      localStorage.setItem(BasicAuthService.USER, JSON.stringify(
+      sessionStorage.setItem(BasicAuthService.USER, JSON.stringify(
         new User(username, basicAuthHeaderString)
       ));
     }));
   }
 
   logout() {
-    localStorage.removeItem(BasicAuthService.USER);
+    sessionStorage.removeItem(BasicAuthService.USER);
     this.router.navigate(['/auth/login']);
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem(BasicAuthService.USER) != null;
+    return sessionStorage.getItem(BasicAuthService.USER) != null;
   }
 
   getUser(): User {
-    return JSON.parse(localStorage.getItem(BasicAuthService.USER));
+    return JSON.parse(sessionStorage.getItem(BasicAuthService.USER));
   }
 
   getUsername(): string {
-    return JSON.parse(localStorage.getItem(BasicAuthService.USER)).username;
+    return JSON.parse(sessionStorage.getItem(BasicAuthService.USER)).username;
   }
 }
