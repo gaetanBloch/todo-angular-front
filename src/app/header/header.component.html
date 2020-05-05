@@ -31,7 +31,7 @@
 
       <ul class="navbar-nav">
         <li class="nav-item" routerLinkActive="active" *ngIf="!authService.isAuthenticated()">
-          <a routerLink="/auth/login" class="nav-link">
+          <a routerLink="/auth" class="nav-link">
             <fa-icon [icon]="faSignInAlt"></fa-icon>
             Authenticate
           </a>
