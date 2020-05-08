@@ -8,7 +8,7 @@ To see the back-end of this application implemented with Java Spring, see [here]
 
 ## Running Application Process on your computer
 
-1. Download the application by Clicking [this link](https://github.com/gaetanBloch/angular-fitness/archive/master.zip)
+1. Download the application by Clicking [this link](https://github.com/gaetanBloch/todo-angular-front/archive/master.zip)
 2. Unzip the application
 3. Download and Install [node.js](https://nodejs.org/en/download/) 
 4. Open a terminal
