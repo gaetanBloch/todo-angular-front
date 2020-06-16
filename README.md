@@ -1,6 +1,6 @@
 # Todo Application Front-End
 
-The application was built using [Angular 9](https://angular.io/), [Bootstrap 4](https://getbootstrap.com/docs/4.4/getting-started/introduction/). It is an Angular based front-end for a Todo List Application. 
+The application was built using [Angular 9](https://angular.io/) and [Bootstrap 4](https://getbootstrap.com/docs/4.4/getting-started/introduction/). It is an Angular based front-end for a Todo List Application. 
 
 **The Full Stack Application with Spring back-end was deployed on Heroku, to access it, click [here](https://gbloch-todo-list.herokuapp.com/).**
 
